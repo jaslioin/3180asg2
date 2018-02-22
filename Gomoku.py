@@ -1,5 +1,5 @@
 class Gomoku:
-    gameBoard = [[0 for x in range(9)] for y in range(9)]
+    gameBoard = [[" " for x in range(9)] for y in range(9)]
     player1=1
     player2=2
     turn = 0
@@ -15,7 +15,21 @@ class Gomoku:
             print("game start!!")
             break
     def printGameBoard(self):
-        print 'hi'
+        counter = 0
+        print "#|",
+        for i in range(1, 10):
+            print("%d |" % i),
+        print ""
+        for i in self.gameBoard:
+            printrow()
+            if (counter >= len(self.gameBoard)):
+                break
+            printcol(counter)
+            for j in self.gameBoard[counter]:
+                print ("%s |" % j),
+            counter = counter + 1
+            print ""
+
     def checkWin(self):
         print 'hi'
     def checkTie(self):
@@ -54,13 +68,22 @@ class Player(object):
         self.gameBoard = gameboard
 
     def nextMove(self):
-        print "place at grid x y"
+        pass
+
 
 class Human(Player):
     humanstuff ='im human'
     def __init__(self,symbol,gameboard,humanstuff):
         super(Human,self).__init__(symbol, gameboard)
         self.humanstuff=humanstuff
+    def nextMove(self):
+        row = int(raw_input("target row: "))
+        col = int(raw_input("target column: "))
+        if(self.gameBoard[row][col] ==" "):
+            print "index is empty"
+            self.gameBoard[row][col]=self.playerSymbol
+        else:
+            print "not empty ar!!!"
 
 class Computer(Player):
     computerstuff='im pc'
@@ -68,23 +91,21 @@ class Computer(Player):
         super(Computer,self).__init__(symbol, gameboard)
         self.computerstuff=computerstuff
 
+def printrow():
+    #print '-------------------------------------'
+    print '______________________________________'
+def printcol(colno):
+    print ("%d|" %(colno+1)),
 
 # initialize game grid
 # choose player
- game = Gomoku()
+game = Gomoku()
+game.printGameBoard()
+
+game.player1.nextMove()
 
 
 
-
-
-
-
-game.gameBoard[1][1]=1
-game.gameBoard[0][0]=0
-game.gameBoard[8][8]=8
-game.gameBoard[8][7]=87
-for i in game.gameBoard:
-   print i
 
 
 
