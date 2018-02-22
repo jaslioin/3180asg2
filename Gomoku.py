@@ -1,12 +1,12 @@
 class Gomoku:
     gameBoard = [[0 for x in range(9)] for y in range(9)]
-    player1 = 1
-    player2 = 2
+    player1=1
+    player2=2
     turn = 0
     def __init__(self):
         self.turn = 0
-        self.player1=1
-        self.player2=2
+        self.player1
+        self.player2
 
         self.createPlayer('O',self.player1)
         self.createPlayer('X',self.player2)
@@ -49,7 +49,7 @@ class Player:
     gameBoard = [[0 for x in range(9)] for y in range(9)]
     playerSymbol = ""
 
-    def __init__(self, symbol,gameboard):
+    def __init__(self, symbol , gameboard):
         self.playerSymbol = symbol
         self.gameBoard = gameboard
 
@@ -58,11 +58,12 @@ class Player:
 
 class Human(Player):
     def __init__(self,symbol,gameboard):
-        super(Player, self)._init_(symbol, gameboard)
+        super(Player, self).__init__(symbol, gameboard)
         print 'hi human'
 class Computer(Player):
     def __init__(self,symbol,gameboard):
-        super(Player, self)._init_(symbol, gameboard)
+        super(Player, self).__init__(symbol, gameboard)
+
         print 'hi computer'
 
 # initialize game grid
