@@ -27,10 +27,10 @@ class Gomoku:
             print "2. Computer"
             choosetype = int(raw_input("your choice: "))
             if choosetype == 1:
-                self.player1 = Human(symbol,self.gameBoard)
+                self.player1 = Human(symbol,self.gameBoard,1)
                 print("Player O is Human")
             else:
-                self.player1 = Computer(symbol, self.gameBoard)
+                self.player1 = Computer(symbol, self.gameBoard,1)
                 print("Player O is Computer")
         elif(symbol == 'X'):
             print "please choose player 2(X)"
@@ -38,16 +38,16 @@ class Gomoku:
             print "2. Computer"
             choosetype = int(raw_input("your choice: "))
             if choosetype == 1:
-                self.player2 = Human(symbol, self.gameBoard)
+                self.player2 = Human(symbol, self.gameBoard,1)
                 print("Player X is Human")
             else:
-                self.player2 = Computer(symbol, self.gameBoard)
+                self.player2 = Computer(symbol, self.gameBoard,1)
                 print("Player X is Computer")
 
 
-class Player:
+class Player(object):
     gameBoard = [[0 for x in range(9)] for y in range(9)]
-    playerSymbol = ""
+    playerSymbol = 1
 
     def __init__(self, symbol , gameboard):
         self.playerSymbol = symbol
@@ -57,19 +57,25 @@ class Player:
         print "place at grid x y"
 
 class Human(Player):
-    def __init__(self,symbol,gameboard):
-        super(Player, self).__init__(symbol, gameboard)
-        print 'hi human'
-class Computer(Player):
-    def __init__(self,symbol,gameboard):
-        super(Player, self).__init__(symbol, gameboard)
+    humanstuff ='im human'
+    def __init__(self,symbol,gameboard,humanstuff):
+        super(Human,self).__init__(symbol, gameboard)
+        self.humanstuff=humanstuff
 
-        print 'hi computer'
+class Computer(Player):
+    computerstuff='im pc'
+    def __init__(self,symbol,gameboard,computerstuff):
+        super(Computer,self).__init__(symbol, gameboard)
+        self.computerstuff=computerstuff
+
 
 # initialize game grid
-game = Gomoku()
-
 # choose player
+ game = Gomoku()
+
+
+
+
 
 
 
@@ -77,8 +83,8 @@ game.gameBoard[1][1]=1
 game.gameBoard[0][0]=0
 game.gameBoard[8][8]=8
 game.gameBoard[8][7]=87
-#for i in game.gameBoard:
-#   print i
+for i in game.gameBoard:
+   print i
 
 
 
