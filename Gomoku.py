@@ -47,10 +47,10 @@ class Gomoku:
 
 class Player:
     gameBoard = [[0 for x in range(9)] for y in range(9)]
-    playerSymbol = 'XO'
+    playerSymbol = ""
 
     def __init__(self, symbol,gameboard):
-        self.symbol = symbol
+        self.playerSymbol = symbol
         self.gameBoard = gameboard
 
     def nextMove(self):
@@ -58,7 +58,7 @@ class Player:
 
 class Human(Player):
     def __init__(self,symbol,gameboard):
-        super(Player, self)._init_(symbol,gameboard)
+        super(Player, self)._init_(symbol, gameboard)
         print 'hi human'
 class Computer(Player):
     def __init__(self,symbol,gameboard):
