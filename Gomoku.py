@@ -1,18 +1,29 @@
+# CSCI3180 Principles of Programming Languages
+# --- Declaration ---
+# I declare that the assignment here submitted is original except for source
+# material explicitly acknowledged. I also acknowledge that I am aware of
+# University policy and regulations on honesty in academic work, and of the
+# disciplinary guidelines and procedures applicable to breaches of such policy and regulations, as contained in the website
+# http://www.cuhk.edu.hk/policy/academichonesty/
+# Assignment 2
+# Name : Li Ho Yin
+#Student ID : 1155077785
+#Email Addr : hyli6@cse.cuhk.edu.hk
 # cite
 # 2 input split by space : https://stackoverflow.com/questions/23253863/how-to-input-2-integers-in-one-line-in-python
 # 2d list : https://stackoverflow.com/questions/6667201/how-to-define-a-two-dimensional-array-in-python
+
 import random
 
 
 class Gomoku:
-    gameBoard = [[" " for x in range(10)] for y in range(10)]
-    player1 = 1
-    player2 = 2
-    turn = 1
-    MAX_TURN = 81
 
     def __init__(self):
+        self.gameBoard = [[" " for x in range(10)] for y in range(10)]
+        self.player1 = 1
+        self.player2 = 2
         self.turn = 1
+        self.MAX_TURN = 81
         self.createPlayer('O', self.player1)
         self.createPlayer('X', self.player2)
 
