@@ -88,44 +88,45 @@ class Gomoku:
         contiguousSymbol = 0
         while (counter < 10):
             if self.gameBoard[counter][lastIndex[1]] == symbol:
+                print "up down"
                 contiguousSymbol += 1
             else:
                 contiguousSymbol = 0
             if contiguousSymbol == 5:
                 return True
             counter += 1
-            # check topleft-bottomright x--/x++ y--/y++
-            contiguousSymbol = 0
-            x = lastIndex[0]
-            y = lastIndex[1]
-            while (x > 1 and y > 1):
-                x -= 1
-                y -= 1
-            while (x < 10 and y < 10):
-                if self.gameBoard[x][y] == symbol:
-                    contiguousSymbol += 1
-                else:
-                    contiguousSymbol = 0
-                if contiguousSymbol == 5:
-                    return True
-                x += 1
-                y += 1
-            # check bottomleft-topright x++/x--,y--/y++
-            contiguousSymbol = 0
-            x = lastIndex[0]
-            y = lastIndex[1]
-            while (x > 1 and y < 9):
-                x -= 1
-                y += 1
-            while (x < 10 and y >= 1):
-                if self.gameBoard[x][y] == symbol:
-                    contiguousSymbol += 1
-                else:
-                    contiguousSymbol = 0
-                if contiguousSymbol == 5:
-                    return True
-                x += 1
-                y -= 1
+        # check topleft-bottomright x--/x++ y--/y++
+        contiguousSymbol = 0
+        x = lastIndex[0]
+        y = lastIndex[1]
+        while (x > 1 and y > 1):
+            x -= 1
+            y -= 1
+        while (x < 10 and y < 10):
+            if self.gameBoard[x][y] == symbol:
+                contiguousSymbol += 1
+            else:
+                contiguousSymbol = 0
+            if contiguousSymbol == 5:
+                return True
+            x += 1
+            y += 1
+        # check bottomleft-topright x++/x--,y--/y++
+        contiguousSymbol = 0
+        x = lastIndex[0]
+        y = lastIndex[1]
+        while (x > 1 and y < 9):
+            x -= 1
+            y += 1
+        while (x < 10 and y >= 1):
+            if self.gameBoard[x][y] == symbol:
+                contiguousSymbol += 1
+            else:
+                contiguousSymbol = 0
+            if contiguousSymbol == 5:
+                return True
+            x += 1
+            y -= 1
 
         if contiguousSymbol < 5:
             return False
@@ -170,8 +171,8 @@ class Gomoku:
 
 
 class Player(object):
-    gameBoard = [[0 for x in range(10)] for y in range(10)]
-    playerSymbol = 1
+    #gameBoard = [[0 for x in range(10)] for y in range(10)]
+    #playerSymbol = 1
 
     def __init__(self, symbol, gameboard):
         self.playerSymbol = symbol
